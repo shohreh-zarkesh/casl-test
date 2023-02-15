@@ -1,25 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
 
+import { AbilityContext } from './components/Can';
+import { buildAbilityFor } from './config/ability';
+import TodoList from "./components/TodoList";
+
+const ability = buildAbilityFor('member');
+
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    console.log(ability)
+    return (
+        <AbilityContext.Provider value={ability}>
+        <div className="App">
+            <TodoList/>
+        </div>
+        </AbilityContext.Provider>
+    );
 }
 
 export default App;
